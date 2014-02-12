@@ -21,18 +21,15 @@ script: |
   # Install php
   sudo add-apt-repository ppa:ondrej/php5 -y
   sudo apt-get update -y
-  sudo apt-get install php5 php5-common php5-dev php-pear php5-curl php5-gd php5-cli php5-apcu php5-mcrypt php5-intl php5-xdebug libicu-dev php5-redis -y
+  sudo apt-get install php5 php5-common php5-dev php-pear php5-curl php5-gd php5-cli php5-mcrypt php5-intl libicu-dev php5-redis -y
 
   # Configure PHP
-  sudo sed -i 's+;date.timezone =+date.timezone = Europe/Rome +g' /etc/php5/cli/php.ini
+  sudo sed -i 's+;date.timezone =+date.timezone = UTC +g' /etc/php5/cli/php.ini
   sudo sed -i  's/128M/8096M/' /etc/php5/cli/php.ini
 
   # Configure PEAR
   pear config-set php_ini /etc/php5/cli/php.ini
   pecl config-set php_ini /etc/php5/cli/php.ini
-
-  # Install PHP extensions
-  echo '\n' | sudo pecl install mongo
 
   # Install composer
   curl -sS https://getcomposer.org/installer | php
@@ -44,27 +41,3 @@ script: |
   sudo mv phpunit.phar /usr/local/bin/phpunit
   sudo chmod +x /usr/local/bin/phpunit
 
-  # Install atoum
-  wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
-  chmod +x mageekguy.atoum.phar
-  sudo mv mageekguy.atoum.phar /usr/local/bin/atoum
-  sudo chmod +x /usr/local/bin/atoum
-
-  # Update node
-  echo '\n' | sudo add-apt-repository ppa:chris-lea/node.js
-  sudo apt-get update
-  sudo apt-get install nodejs
-
-  # Install bower
-  sudo npm install -g bower
-
-  # Install capifony
-  sudo gem install capifony
-
-  # Install s3cmd
-  wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add -
-  sudo wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list
-  sudo apt-get update && sudo apt-get install s3cmd
-
-  # Install coverage-badge
-  sudo npm install -g coverage-badge
