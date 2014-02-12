@@ -37,4 +37,10 @@ script: |
   wget https://phar.phpunit.de/phpunit.phar
   sudo mv phpunit.phar /usr/local/bin/phpunit
   sudo chmod +x /usr/local/bin/phpunit
-
+  
+  sudo apt-get install build-essential gcj-jdk unzip ghostscript zbar-tools
+  wget http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk-2.02-src.zip
+  unzip pdftk-2.02-src.zip
+  cd pdftk-2.02-dist/pdftk
+  make -f Makefile.Debian
+  sudo make -f Makefile.Debian install
