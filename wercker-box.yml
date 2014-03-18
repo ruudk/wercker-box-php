@@ -1,5 +1,5 @@
 name: php55
-version: 0.0.30
+version: 0.0.31
 inherits: wercker/ubuntu12.04-webessentials@0.0.3
 type: main
 platform: ubuntu@12.04
@@ -18,7 +18,7 @@ script: |
   # Install php
   sudo add-apt-repository ppa:ondrej/php5 -y
   sudo apt-get update -y
-  sudo apt-get install php5 php5-common php5-dev php-pear php5-curl php5-gd php5-cli php5-mysql php5-mcrypt php5-intl libicu-dev php5-redis -y
+  sudo apt-get install php5 php5-common php5-dev php-pear php5-curl php5-gd php5-cli php5-mysql php5-sqlite php5-mcrypt php5-intl libicu-dev php5-redis -y
 
   # Configure PHP
   sudo sed -i 's+;date.timezone =+date.timezone = UTC +g' /etc/php5/cli/php.ini
