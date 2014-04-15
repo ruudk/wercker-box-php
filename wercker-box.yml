@@ -25,10 +25,10 @@ script: |
   sudo service docker restart
   
   # Pull containers
-  docker pull uudk/ghostscript
-  docker pull ruudk/pdftk
-  docker pull ruudk/zbar
-  docker pull ruudk/dmtx-utils
+  sudo docker pull uudk/ghostscript
+  sudo docker pull ruudk/pdftk
+  sudo docker pull ruudk/zbar
+  sudo docker pull ruudk/dmtx-utils
   
   # Edit environment path
   echo 'export PATH="/usr/local/bin:$PATH"' >> $HOME/.bash_profile
