@@ -1,5 +1,5 @@
 name: php55
-version: 0.0.32
+version: 0.0.33
 inherits: wercker/ubuntu12.04-webessentials@0.0.3
 type: main
 platform: ubuntu@12.04
@@ -11,6 +11,9 @@ packages:
   - php@5.5
   - libicu-dev
 script: |
+
+  # Install Docker
+  curl -s https://get.docker.io/ubuntu/ | sudo sh
   
   # Edit environment path
   echo 'export PATH="/usr/local/bin:$PATH"' >> $HOME/.bash_profile
