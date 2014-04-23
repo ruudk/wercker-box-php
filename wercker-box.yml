@@ -15,6 +15,7 @@ script: |
   echo 'export PATH="/usr/local/bin:$PATH"' >> $HOME/.bash_profile
 
   # Install php
+  sudo apt-get update -y
   sudo apt-get install software-properties-common
   sudo add-apt-repository ppa:ondrej/php5 -y
   sudo apt-get update -y
