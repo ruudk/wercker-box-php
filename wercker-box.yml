@@ -1,6 +1,5 @@
 name: php55
 version: 0.0.56
-inherits: tvaughan/ubuntu14.04@1.0.1
 type: main
 platform: ubuntu@12.04
 description: wercker box for php 5.5
@@ -11,15 +10,20 @@ packages:
   - php@5.5
   - libicu-dev
 script: |
-  
+  sudo apt-get update
+  sudo apt-get install -y update-manager-core
+  sudo do-release-upgrade -f DistUpgradeViewNonInteractive -m server -d
+  sudo apt-get install -y aptitude
+  sudo aptitude update
+  sudo aptitude safe-upgrade
+
   # Edit environment path
   echo 'export PATH="/usr/local/bin:$PATH"' >> $HOME/.bash_profile
 
   # Install php
-  sudo add-apt-repository ppa:ondrej/php5 -y
-  sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
-  sudo apt-get update -y
   sudo apt-get install dmtx-utils
+  sudo add-apt-repository ppa:ondrej/php5 -y
+  sudo apt-get update -y
   
   sudo apt-get install php5 php5-common php5-dev php-pear php5-curl php5-gd php5-cli php5-mysql php5-sqlite php5-mcrypt php5-xdebug php5-intl libicu-dev php5-redis -y
 
