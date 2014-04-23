@@ -1,7 +1,7 @@
 name: php55
-version: 0.0.56
-type: main
+version: 0.0.57
 platform: ubuntu@12.04
+inherits: ruudk/ubuntu14.04@1.0.0
 description: wercker box for php 5.5
 keywords:
   - php
@@ -10,13 +10,6 @@ packages:
   - php@5.5
   - libicu-dev
 script: |
-  sudo apt-get update
-  sudo apt-get install -y update-manager-core
-  sudo do-release-upgrade -f DistUpgradeViewNonInteractive -m server -d
-  sudo apt-get install -y aptitude
-  sudo aptitude update
-  sudo aptitude safe-upgrade
-
   # Edit environment path
   echo 'export PATH="/usr/local/bin:$PATH"' >> $HOME/.bash_profile
 
@@ -41,6 +34,7 @@ script: |
   sudo chmod +x /usr/local/bin/composer
 
   # Install PHPUnit
+  sudo apt-get install wget
   wget https://phar.phpunit.de/phpunit.phar
   sudo mv phpunit.phar /usr/local/bin/phpunit
   sudo chmod +x /usr/local/bin/phpunit
