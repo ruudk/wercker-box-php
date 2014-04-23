@@ -20,7 +20,8 @@ script: |
   sudo add-apt-repository ppa:ondrej/php5 -y
   sudo apt-get update -y
   
-  sudo apt-get install build-essential gcc-java gcj-jdk unzip ghostscript zbar-tools poppler-utils dmtx-utils
+  sudo apt-get install build-essential gcj-jdk unzip ghostscript zbar-tools poppler-utils dmtx-utils
+  sudo apt-get upgrade gcj-jdk
   
   gcjh --version
   gcj --version
