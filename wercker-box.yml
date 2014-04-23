@@ -1,5 +1,5 @@
 name: php55
-version: 0.0.58
+version: 0.0.59
 inherits: ruudk/ubuntu14.04@1.0.0
 type: main
 platform: ubuntu@12.04
