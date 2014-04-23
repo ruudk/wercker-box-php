@@ -1,8 +1,8 @@
 name: php55
-version: 0.0.54
+version: 0.0.55
 inherits: wercker/ubuntu12.04-webessentials@0.0.3
 type: main
-platform: ubuntu@13.10
+platform: ubuntu@14.04
 description: wercker box for php 5.5
 keywords:
   - php
@@ -17,7 +17,6 @@ script: |
 
   # Install php
   sudo add-apt-repository ppa:ondrej/php5 -y
-  #sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe" -y
   sudo apt-get update -y
   sudo apt-get install dmtx-utils
   
