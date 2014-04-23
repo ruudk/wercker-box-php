@@ -1,7 +1,8 @@
 name: php55
 version: 0.0.57
-platform: ubuntu@12.04
 inherits: ruudk/ubuntu14.04@1.0.0
+type: main
+platform: ubuntu@12.04
 description: wercker box for php 5.5
 keywords:
   - php
