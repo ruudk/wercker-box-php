@@ -28,6 +28,8 @@ script: |
   wget http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk-2.02-src.zip
   unzip pdftk-2.02-src.zip
   cd pdftk-2.02-dist/pdftk
+  sed -i 's/VERSUFF=-4.6/VERSUFF=-4.8/g' Makefile.Debian
+  cat Makefile.Debian
   make -f Makefile.Debian
   sudo make -f Makefile.Debian install
   
