@@ -1,8 +1,8 @@
 name: php55
-version: 0.0.55
+version: 0.0.56
 inherits: tvaughan/ubuntu14.04@1.0.1
 type: main
-platform: ubuntu@14.04
+platform: ubuntu@12.04
 description: wercker box for php 5.5
 keywords:
   - php
