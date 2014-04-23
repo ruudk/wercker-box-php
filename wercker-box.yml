@@ -20,7 +20,7 @@ script: |
   sudo add-apt-repository ppa:ondrej/php5 -y
   sudo apt-get update -y
   
-  sudo apt-get install build-essential gcj-jdk wget unzip ghostscript zbar-tools poppler-utils dmtx-utils
+  sudo apt-get install build-essential gcj-jdk wget curl unzip ghostscript zbar-tools poppler-utils dmtx-utils
   
   # PDFtk
   wget http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk-2.02-src.zip
