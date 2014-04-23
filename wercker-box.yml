@@ -20,6 +20,17 @@ script: |
   sudo add-apt-repository ppa:ondrej/php5 -y
   sudo apt-get update -y
   
+  sudo apt-get install build-essential gcc-java gcj-jdk unzip ghostscript zbar-tools poppler-utils dmtx-utils
+  
+  gcjh --version
+  gcj --version
+  
+  wget http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk-2.02-src.zip
+  unzip pdftk-2.02-src.zip
+  cd pdftk-2.02-dist/pdftk
+  make -f Makefile.Debian
+  sudo make -f Makefile.Debian install
+  
   sudo apt-get install php5 php5-common php5-dev php-pear php5-curl php5-gd php5-cli php5-mysql php5-sqlite php5-mcrypt php5-xdebug php5-intl libicu-dev php5-redis -y
 
   # Configure PHP
@@ -40,11 +51,3 @@ script: |
   wget https://phar.phpunit.de/phpunit.phar
   sudo mv phpunit.phar /usr/local/bin/phpunit
   sudo chmod +x /usr/local/bin/phpunit
-  
-  sudo apt-get install build-essential gcj-jdk unzip ghostscript zbar-tools poppler-utils dmtx-utils
-  
-  wget http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk-2.02-src.zip
-  unzip pdftk-2.02-src.zip
-  cd pdftk-2.02-dist/pdftk
-  make -f Makefile.Debian
-  sudo make -f Makefile.Debian install
